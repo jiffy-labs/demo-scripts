@@ -6,13 +6,13 @@ import { mainnet, base } from 'viem/chains';
 
 const jiffyscanKey = process.env.JIFFYSCAN_KEY as string;
 const rpc = process.env.RPC as string;
+const pvtKey = process.env.PVT_KEY as `0x${string}`;
 
 const client = createPublicClient({
     chain: base,
     transport: http(rpc),
 });
 
-const pvtKey = process.env.PVT_KEY as `0x${string}`;
 const owner = privateKeyToAccount(pvtKey);
 
 const paymasterClient = createPaymasterClient({
@@ -52,4 +52,4 @@ const hash = await bundlerClient.sendUserOperation({
     maxPriorityFeePerGas: BigInt('10000000'),
 }) as string;
 
-console.log('https://jiffyscan.xyz/userOpHash/' + hash);
+console.log('find user op here - https://jiffyscan.xyz/userOpHash/' + hash);
