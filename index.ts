@@ -5,11 +5,11 @@ import { mainnet, base } from 'viem/chains';
 
 
 const jiffyscanKey = process.env.JIFFYSCAN_KEY as string;
-
+const rpc = process.env.RPC as string;
 
 const client = createPublicClient({
     chain: base,
-    transport: http(),
+    transport: http(rpc),
 });
 
 const pvtKey = process.env.PVT_KEY as `0x${string}`;
@@ -40,7 +40,7 @@ const account = await toCoinbaseSmartAccount({
     owners: [owner]
 });
 
-console.log(account.address);
+console.log('smart account address - ', account.address);
 
 const hash = await bundlerClient.sendUserOperation({
     account,
