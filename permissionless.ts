@@ -30,7 +30,7 @@ export const publicClient: PublicClient = createPublicClient({
 const jiffyscanKey = process.env.JIFFYSCAN_KEY as string;
 
 
-const paymasterClient = new JiffyPaymaster("http://localhost:2999/", 8453, {
+const paymasterClient = new JiffyPaymaster("https://paymaster.jiffyscan.xyz", 8453, {
     "x-api-key": jiffyscanKey,
 });
 
