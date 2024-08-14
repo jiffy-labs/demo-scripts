@@ -23,8 +23,9 @@ import { base } from "viem/chains";
 import { privateKeyToAccount } from "viem/accounts";
 import { JiffyPaymaster } from "@jiffy-labs/web3a";
 
+const rpc = process.env.RPC as string;
 export const publicClient: PublicClient = createPublicClient({
-    transport: http("https://api.developer.coinbase.com/rpc/v1/base/..."),
+    transport: http(rpc),
 });
 
 const jiffyscanKey = process.env.JIFFYSCAN_KEY as string;
